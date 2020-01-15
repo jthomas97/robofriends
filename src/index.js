@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
-import CardList from './CardList';
+import App from './App';
 
 
 // Destructure, since not exporting default in robots. Could have others in robots.js
@@ -11,7 +11,7 @@ import CardList from './CardList';
 import {robots} from './robots'
 
 ReactDOM.render(
-                <CardList robots={robots}/>
+                <App robots={robots}/>
 , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

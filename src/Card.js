@@ -1,9 +1,12 @@
 import React from 'react';
 
-// index.js passes robots array aka 'props' to CardList.js
+// index.js passes robots array aka 'props' to App.js
+// which passes robots to CardList.js
 // CardList.js passes individual robots to Card
+
 // Card function accepts them as paramaters and destructures them
 // since they are passed as a object
+
 // So you dont have to do props.name props.email etc...
 const Card = ({name, email, id}) => {
   return (
