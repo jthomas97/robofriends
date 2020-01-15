@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
-import App from './App';
+import App from './containers/App';
 
 
 // Destructure, since not exporting default in robots. Could have others in robots.js

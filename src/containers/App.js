@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import {robots} from './robots'
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
+import ErrorBoundry from '../components/ErrorBoundry';
 
 import './App.css';
 
@@ -19,9 +20,17 @@ class App extends React.Component {
   // Set initail state robots as the imported robots array,
   // Set initial state for searchfield as empty str
     this.state = {
-      robots: robots,
+      robots: [],
       searchfield: ""
     }
+  }
+
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users').then((response) => {
+      return response.json();
+    }).then((users) => {
+      this.setState({robots: users});
+    })
   }
 
 //When input from SearchBox component is changed,
@@ -48,7 +57,11 @@ class App extends React.Component {
         <SearchBox searchChange={this.onSearchChange}/>
     {/* Initially filteredRobots is an array of all the robots since
     it initally compare if each robot.name includes a string. Which is obv true */}
-        <CardList robots={filteredRobots}/>
+        <Scroll>
+          <ErrorBoundry>
+            <CardList robots={filteredRobots}/>
+          </ErrorBoundry>
+        </Scroll>
       </div>
     );
   }

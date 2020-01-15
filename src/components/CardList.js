@@ -4,6 +4,9 @@ import Card from './Card';
 
 // Destructures 'props' object which leaves us with robots array
 const CardList = ({robots}) => {
+  // if(true){
+  //   throw new Error('Nooo');
+  // }
   return (
     <div>
       {
